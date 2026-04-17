@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0d0f12;
+  --foreground: #141720;
+  --cards: #1a1e2a;
+  --accent-primary: #e8a44a;
+  --accent-vert: #4ac9a4;
+  --accent-violet: #7c6fef;
+}
+
+:root {
+  --font-title: var(--font-syne);
+  --font-mono: var(--font-jetbrains);
+}
+
+body {
+  font-family: var(--font-title);
+  background-color: var(--background);
+}
+
+/* Titres / nav */
+h1, h2, h3, nav {
+  font-family: var(--font-title);
+}
+
+/* Code / chiffres */
+code, pre, .mono {
+  font-family: var(--font-mono);
+}
+
+.bg-foreground {
+  background-color: var(--foreground);
+}
+
+.bg-primary {
+  background-color: var(--accent-primary);
+}
+
+.bg-cards {
+  background-color: var(--cards);
+}
+
+.active {
+  background-color: color-mix(in srgb, var(--accent-primary) 20%, transparent);
+  border: 2px solid var(--accent-primary);
+}
