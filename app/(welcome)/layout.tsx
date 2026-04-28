@@ -13,7 +13,7 @@ export default function WelcomeLayout({
       {/* Contenu */}
       <div className="relative z-10">
         <Navbar />
-        <main className="container mt-15 md:mt-20">
+        <main className="mt-15 md:mt-20">
           {children}
         </main>
       </div>

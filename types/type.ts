@@ -1,7 +1,6 @@
 export type NavLink = {
     label: string
-    path?: string
-    targetId?: string
+    targetId: string
 }
 
 export type CTAProps = {
