@@ -31,8 +31,16 @@
     color: var(--accent-primary);
   }
 
+  .text-foreground {
+    color: var(--foreground);
+  }
+
   .bg-foreground {
     background-color: var(--foreground);
+  }
+
+  .border-primary {
+    border: var(--accent-primary);
   }
 }
 
@@ -61,3 +69,4 @@ code, pre, .mono {
   border: 2px solid var(--accent-primary);
   color: var(--accent-primary);
 }
+

@@ -1,7 +1,7 @@
 "use client"
 
 import { links } from "@/utils/link"
-import { usePathname, useRouter } from "next/navigation"
+import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { IoMdClose } from "react-icons/io"
 import { TfiMenu } from "react-icons/tfi"
@@ -12,21 +12,15 @@ import { NavLink } from "@/types/type"
 const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
-  const router = useRouter()
+  // const router = useRouter()
+  const [active, setActive] = useState("/")
 
   const handleClick = (link: NavLink) => {
-    setIsMenuOpen(false)
-
-    if (link.targetId) {
-      document.getElementById(link.targetId)?.scrollIntoView({
-        behavior: "smooth",
-      })
-      return
+    const el = document.getElementById(link.targetId)
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" })
     }
-
-    if (link.path) {
-      router.push(link.path)
-    }
+    setActive(link.targetId)
   }
 
   return (
@@ -37,9 +31,8 @@ const Menu = () => {
           <span
             key={index}
             onClick={() => handleClick(link)}
-            className={`font-bold cursor-pointer text-white text-xl sm:text-base md:text-lg lg:text-xl${
-              pathname === link.path ? "actived" : ""
-            }`}
+            className={`font-bold cursor-pointer text-white text-xl sm:text-base md:text-lg lg:text-xl ${active === link.targetId ? "border-b-2 border-amber-600" : ""
+              }`}
           >
             {link.label}
           </span>
@@ -67,9 +60,8 @@ const Menu = () => {
             <span
               key={index}
               onClick={() => handleClick(link)}
-              className={`font-bold cursor-pointer text-white ${
-                pathname === link.path ? "actived" : ""
-              }`}
+              className={`font-bold cursor-pointer text-white ${pathname === link.targetId ? "actived" : ""
+                }`}
             >
               {link.label}
             </span>
